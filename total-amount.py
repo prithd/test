@@ -13,7 +13,10 @@ lines = sc.textFile("file:///SparkCourse/customer-orders.csv")
 acctAmt  =  lines.map(parseLine)
 totAmt = acctAmt.reduceByKey(lambda x,y: x+y)
 totAmtSorted = totAmt.map(lambda x: (x[1], x[0])).sortByKey(1).map(lambda x: (x[1], x[0]))
+totAmtSorted.cache()
+
 results = totAmtSorted.collect()
+print(totAmtSorted.count())
 
 
 for result in results:
