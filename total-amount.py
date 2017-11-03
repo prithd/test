@@ -16,7 +16,7 @@ totAmtSorted = totAmt.map(lambda x: (x[1], x[0])).sortByKey(1).map(lambda x: (x[
 totAmtSorted.cache()
 
 results = totAmtSorted.collect()
-print(totAmtSorted.count())
+print("count is" + totAmtSorted.count())
 
 
 for result in results:
