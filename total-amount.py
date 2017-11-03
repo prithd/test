@@ -15,6 +15,6 @@ totAmt = acctAmt.reduceByKey(lambda x,y: x+y)
 totAmtSorted = totAmt.map(lambda x: (x[1], x[0])).sortByKey(1).map(lambda x: (x[1], x[0]))
 results = totAmtSorted.collect()
 
-#print("total records:  " + noofrows)
+
 for result in results:
     print(result)
